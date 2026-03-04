@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule, NgIf } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { PreLoaderComponent } from './components/pre-loader/pre-loader.component';
+import { PreloaderService } from './components/pre-loader/preloader.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { AboutComponent } from './components/about/about.component';
@@ -12,7 +15,9 @@ import { AchievementsComponent } from './components/achievements/achievements.co
   selector: 'app-root',
   standalone: true,
   imports: [
+    NgIf,
     RouterOutlet,
+    PreLoaderComponent,
     NavbarComponent,
     ScrollTopComponent,
     HeroComponent,
@@ -25,6 +30,10 @@ import { AchievementsComponent } from './components/achievements/achievements.co
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
-  title = 'ss';
+export class AppComponent implements OnInit{
+  title = 'Sreekanth-Portfolio';
+  constructor(public preloaderService:PreloaderService){}
+  ngOnInit(): void {
+    this.preloaderService.hide();
+  }
 }
