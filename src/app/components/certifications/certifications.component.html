@@ -1,0 +1,127 @@
+<section class="certifications-section" id="certifications">
+    <div class="container px-md-3 pz-lg-5">
+        <div class="row text-center mb-5">
+            <div class="col-sm-12">
+                <p class="section-label" #headingEl [@headingAnim]="headingVisibility[0] ? 'visible' : 'hidden'">
+                    CREDENTIALS</p>
+
+                <h2 class="section-title" #headingEl [@headingAnim]="headingVisibility[1] ? 'visible' : 'hidden'">
+                    Professional
+                    <span>Certifications</span>
+                </h2>
+            </div>
+        </div>
+        <!-- ================= SERVICE NOW ================= -->
+
+        <div class="cert-group">
+
+            <div class="group-title">
+                <span></span>
+                SERVICENOW
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-4" *ngFor="let cert of serviceNowCerts;let i = index">
+
+                    <div class="cert-card" #cardRef [attr.data-index]="i" [attr.data-type]="'card'"
+                        [@cardReveal]="cardVisibility[i] ? 'visible' : 'hidden'">
+
+                        <div class="cert-icon">
+                            <i class="bi bi-award"></i>
+                        </div>
+
+                        <div class="cert-text">
+                            <h5>{{cert.code}}</h5>
+                            <p>{{cert.title}}</p>
+                        </div>
+
+                        <div class="cert-check">
+                            <i class="bi bi-check-circle"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ================= MICROSOFT ================= -->
+
+        <div class="cert-group">
+
+            <div class="group-title">
+                <span></span>
+                MICROSOFT
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-4" *ngFor="let cert of microsoftCerts;let i = index">
+
+                    <div class="cert-card" #cardRef [attr.data-index]="i + serviceNowCerts.length"
+                        [attr.data-type]="'card'"
+                        [@cardReveal]="cardVisibility[i + serviceNowCerts.length] ? 'visible' : 'hidden'">
+
+                        <div class="cert-icon">
+                            <i class="bi bi-award"></i>
+                        </div>
+
+                        <div class="cert-text">
+                            <h5>{{cert.code}}</h5>
+                            <p>{{cert.title}}</p>
+                        </div>
+
+                        <div class="cert-check">
+                            <i class="bi bi-check-circle"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ================= AGILE ================= -->
+
+        <div class="cert-group">
+
+            <div class="group-title">
+                <span></span>
+                AGILE
+            </div>
+
+            <div class="row g-4 py-3">
+
+                <div class="col-md-4" *ngFor="let cert of agileCerts; let i = index">
+
+                    <div class="cert-card" #cardRef
+                        [attr.data-index]="i + serviceNowCerts.length + microsoftCerts.length" [attr.data-type]="'card'"
+                        [@cardReveal]="cardVisibility[i + serviceNowCerts.length + microsoftCerts.length] ? 'visible' : 'hidden'">
+
+                        <div class="cert-icon">
+                            <i class="bi bi-award"></i>
+                        </div>
+
+                        <div class="cert-text">
+                            <h5>{{cert.code}}</h5>
+                            <p>{{cert.title}}</p>
+                        </div>
+
+                        <div class="cert-check">
+                            <i class="bi bi-check-circle"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>

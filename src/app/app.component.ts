@@ -11,6 +11,7 @@ import { ExpertiseComponent } from './components/expertise/expertise.component';
 import { ScrollTopComponent } from './scroll-top/scroll-top.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AchievementsComponent } from './components/achievements/achievements.component';
+import { CertificationsComponent } from './components/certifications/certifications.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -25,7 +26,7 @@ import { AchievementsComponent } from './components/achievements/achievements.co
     JourneyComponent,
     ExpertiseComponent,
     ContactComponent,
-    AchievementsComponent
+    AchievementsComponent,CertificationsComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

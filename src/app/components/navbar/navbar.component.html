@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg fixed-top" [ngClass]="{'scrolled': isScrolled}">
+<nav class="navbar navbar-expand-lg fixed-top px-3" [ngClass]="{'scrolled': isScrolled}">
 
     <div class="container">
 
@@ -9,41 +9,51 @@
 
         <!-- Mobile Toggle -->
         <button class="navbar-toggler border-0" type="button" (click)="toggleMenu()">
-
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Nav Links -->
-        <div class="collapse navbar-collapse justify-content-end" [ngClass]="{'show': isMenuOpen}">
+    </div>
 
-            <ul class="navbar-nav gap-lg-4 text-center">
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay" *ngIf="isMenuOpen" (click)="closeMenu()"></div>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#about" (click)="closeMenu()">About</a>
-                </li>
+    <!-- Sliding Menu -->
+    <div class="mobile-menu" [class.open]="isMenuOpen">
+        <!-- Close Button -->
+        <button class="menu-close-btn" (click)="closeMenu()">
+            <i class="bi bi-x-lg"></i>
+        </button>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#journey" (click)="closeMenu()">Journey</a>
-                </li>
+        <ul class="navbar-nav text-start">
+            <li class="nav-item">
+                <a class="nav-link" href="#home" (click)="closeMenu()">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#about" (click)="closeMenu()">About</a>
+            </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#expertise" (click)="closeMenu()">Expertise</a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#journey" (click)="closeMenu()">Journey</a>
+            </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#achievements" (click)="closeMenu()">Achievements</a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#expertise" (click)="closeMenu()">Expertise</a>
+            </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#certifications" (click)="closeMenu()">Certifications</a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#achievements" (click)="closeMenu()">Achievements</a>
+            </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact" (click)="closeMenu()">Contact</a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#certifications" (click)="closeMenu()">Certifications</a>
+            </li>
 
-            </ul>
-        </div>
+            <li class="nav-item">
+                <a class="nav-link" href="#contact" (click)="closeMenu()">Contact</a>
+            </li>
+
+        </ul>
 
     </div>
+
 </nav>
