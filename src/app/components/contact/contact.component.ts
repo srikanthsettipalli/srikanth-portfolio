@@ -91,7 +91,7 @@ this.headings.forEach((heading, index) => {
 
     const formData = new FormData();
 
-  formData.append('access_key', 'YOUR_ACCESS_KEY'); 
+  formData.append('access_key', '481a3436-386c-46c4-b902-095efc82d387'); 
   formData.append('name', this.form.value.name);
   formData.append('email', this.form.value.email);
   formData.append('message', this.form.value.message);
