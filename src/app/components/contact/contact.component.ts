@@ -100,11 +100,11 @@ this.headings.forEach((heading, index) => {
   this.http.post('https://api.web3forms.com/submit', formData)
     .subscribe({
       next: () => {
-        alert('Message sent successfully');
+        alert('Message sent successfully!');
         this.form.reset();
       },
       error: () => {
-        alert('Something went wrong');
+        alert('Something went wrong!');
       }
     });
   }
