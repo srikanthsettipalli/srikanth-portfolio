@@ -1,6 +1,7 @@
 import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 import {
   ReactiveFormsModule,
   FormBuilder,
@@ -48,11 +49,11 @@ export class ContactComponent {
 
   form!: FormGroup;
 
-  constructor(private fb: FormBuilder, private http:HttpClient) {
+  constructor(private fb: FormBuilder, private http:HttpClient, private toastr: ToastrService) {
     this.form = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      message: ['', Validators.required]
+      message: ['', Validators.required],
     });
   }
 
@@ -86,6 +87,7 @@ this.headings.forEach((heading, index) => {
     
     if (this.form.invalid) {
       this.form.markAllAsTouched();
+      this.toastr.warning('Please fill all required fields properly', 'Validation');
       return;
     }
 
@@ -100,11 +102,11 @@ this.headings.forEach((heading, index) => {
   this.http.post('https://api.web3forms.com/submit', formData)
     .subscribe({
       next: () => {
-        alert('Message sent successfully!');
+        this.toastr.success('Message sent successfully!', 'Success');
         this.form.reset();
       },
       error: () => {
-        alert('Something went wrong!');
+        this.toastr.error('Something went wrong!', 'Error');
       }
     });
   }
